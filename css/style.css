@@ -1,0 +1,202 @@
+/* ==========================================================================
+   Author's custom styles
+   ========================================================================== */
+
+/*
+Table of Contents
+1. Layout & General
+2. Typography & Headings
+3. Header
+4. Nav
+5. Content/Media
+6. Footer
+7. Other
+8. Media Queries
+*/
+
+/*=======================
+1. Layout & General
+========================*/
+* {
+  box-sizing: border-box;
+}
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+img {
+  max-width: 100%;
+}
+/* Flex Grid*/
+.grid {
+  display: block;
+  justify-content: space-between;
+}
+  .col {
+    flex: 1;
+    flex-grow: 1;
+  }
+.flex-v-center {
+  align-items: center;
+}
+/* Alignment & Spacing */
+.center-text {
+  text-align: center;
+}
+.center {
+  margin: auto;
+}
+.no-margin {
+  margin: 0;
+}
+
+/*=======================
+2. Typography & Headings
+========================*/
+
+body {
+  font-family: "Josefin Sans", Helvetica, Arial, sans-serif;
+  font-size: 18px;
+}
+h1 {
+  font-size: 2.5em;
+}
+.unbold {
+  font-weight: 300;
+}
+
+/*=======================
+3. Header
+========================*/
+
+header {
+  height: 3em;
+}
+  .fixed-wrapper {
+    position: fixed;
+    height: inherit;
+    width: 100%;
+    z-index: 999;
+    background: #263248;
+  }
+  .logo {
+    max-height: 100%;
+  }
+
+/*=======================
+4. Nav
+========================*/
+
+
+/*=======================
+5. Content/Media
+========================*/
+
+section {
+  max-width: 50em;
+  margin: auto;
+  padding: 1em;
+}
+/* Hero Text/Image*/
+.hero {
+  max-width: 100%;
+  min-height: 12em;
+  padding: 0;
+}
+  .main-text {
+    padding: 1.5em;
+    text-align: center;
+  }
+  .hero-background-img {
+    min-height: inherit;
+    background: #7E8AA2; /* fallback */
+    background: url("http://placekitten.com/1140/350") top center/cover;
+  }
+
+/* Featured Content */
+.featured {
+  max-width: 50em;
+  margin: -3em auto 1em auto;
+  padding: 0;
+}
+
+article {
+  padding: 0.5em 0;
+  margin: 1em;
+  background: #eee;
+}
+  article img {
+    width: 100%;
+  }
+
+
+/*=======================
+6. Footer
+========================*/
+
+footer {
+  width: 100%;
+  min-height: 15em;
+  background: #263248;
+}
+footer a {
+  color: #333;
+  background: #ccc;
+  padding: 1em;
+}
+
+/*=======================
+7. Other
+========================*/
+
+
+/*=======================
+8. Media Queries
+========================*/
+
+/* For tablets */
+@media only screen and (min-width: 400px) {
+  /* Flex Grid */
+  .grid {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  .md-whole {
+    min-width: 100%;
+  }
+  .md-halves {
+    min-width: 50%;
+  }
+}
+
+/* For Desktop */
+@media only screen and (min-width: 800px) {
+  /* Flex Grid */
+  .lg-thirds {
+    min-width: 33.33%;
+  }
+  /* Content */
+  .hero {
+    position: relative; /* Keep the background img positioned inside the hero */
+    min-height: 17em;
+  }
+    .main-text {
+      position: relative;
+      left: 10%;
+      min-width: 20%; /* To keep it a small text box */
+      max-width: 40%;
+      background: #333; /* fallback */
+      background: rgba(0, 0, 0, 0.5);
+      color: #fff;
+      text-align: left;
+    }
+    .hero-background-img {
+      position: absolute; /* So the main text can be overlaid on it */
+      top: 0;
+      z-index: -999;
+    }
+    .featured {
+      margin: -2em auto 1em auto;
+    }
+}
