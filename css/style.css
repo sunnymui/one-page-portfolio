@@ -34,7 +34,6 @@ img {
   max-width: 100%; /* general responsive img style */
 }
 hr {
-  margin: 1em;
   border-top: 1px solid #7e8aa2; /* override default color */
 }
 /* Flex Grid*/
@@ -95,13 +94,23 @@ hr {
   box-shadow: inset 3px 3px 5px rgba(0, 0, 0, 0.6);
 }
 
+/* Lists */
+.list-no-style {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
 /*=======================
 2. Typography & Headings
 ========================*/
 
 /* Headings */
 h1 {
-  font-size: 2.5em;
+  font-size: 2.7em;
+}
+h2 {
+  color: #263248;
 }
 
 /* Text Styling */
@@ -113,6 +122,9 @@ h1 {
 }
 .all-caps {
   text-transform: uppercase;
+}
+.big-text {
+  font-size: 1.3em;
 }
 
 /* Text Colors */
@@ -221,6 +233,19 @@ section {
       opacity: 0.9;
     }
 
+/* Contact */
+.contact li{
+  display: inline-block;
+  margin: 0 1.8em 0.5em 0;
+}
+
+/* About */
+.headshot {
+  margin: 0 1em 1em 0;
+  border-radius: 99%;
+}
+
+
 /*=======================
 6. Footer
 ========================*/
@@ -239,6 +264,8 @@ footer {
 /*=======================
 7. Other
 ========================*/
+
+/* Animations */
 .fade-in{
   animation: fadein 0.5s;
 }
@@ -247,6 +274,48 @@ footer {
   from { opacity: 0; }
   to   { opacity: 1; }
 }
+
+/* Fontello Icon Font Plugin */
+@font-face {
+  font-family: "fontello";
+  src: url("../font/fontello.eot");
+  src: url("../font/fontello.eot?#iefix") format("embedded-opentype"),
+       url("../font/fontello.woff2") format("woff2"),
+       url("../font/fontello.woff") format("woff"),
+       url("../font/fontello.ttf") format("truetype"),
+       url("../font/fontello.svg#fontello") format("svg");
+  font-weight: normal;
+  font-style: normal;
+}
+
+ [class^="icon-"]:before, [class*=" icon-"]:before {
+  font-family: "fontello";
+  font-style: normal;
+  font-weight: normal;
+  speak: none;
+  display: inline-block;
+  text-decoration: inherit;
+  width: 1em;
+  margin: 0 0.5em 0 0;
+  font-size: 1.2em;
+  text-align: center;
+
+  /* For safety - reset parent styles, that can break glyph codes*/
+  font-variant: normal;
+  text-transform: none;
+
+  /* fix buttons height, for twitter bootstrap */
+  line-height: 1em;
+
+  /* Font smoothing. That was taken from TWBS */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-github:before { content: '\e800'; } /* '' */
+.icon-linkedin:before { content: '\e801'; } /* '' */
+.icon-gmail:before { content: '\e802'; } /* '' */
+.icon-upwork:before { content: '\e803'; } /* '' */
 
 /*=======================
 8. Media Queries
@@ -275,13 +344,21 @@ footer {
   .md-halves {
     min-width: 50%;
   }
+  .md-natural {
+    min-width: 0;
+  }
 
-  /* animate the breakpoint transitions */
+  /* Animate the breakpoint transitions */
   .grid,
   .md-whole,
   .md-halves,
   .lg-thirds {
     transition: 0.3s all;
+  }
+
+  /* About */
+  .headshot {
+    float: left;
   }
 }
 
