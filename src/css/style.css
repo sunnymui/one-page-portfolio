@@ -1,0 +1,585 @@
+/* ==========================================================================
+   Table of Contents
+   ==========================================================================
+
+Built mobile first so check media queries first if you're looking
+for a desktop specific style.
+
+sm, md, and lg prefixes mean they will apply to small (mobile), medium (tablet),
+or large (desktop) screen sizes.
+
+1. Layout & General
+2. Typography & Headings
+3. Header
+4. Nav
+5. Content/Media
+6. Footer
+7. Other
+8. Media Queries
+
+*/
+
+
+/*=======================
+1. Layout & General
+========================*/
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Open Sans", Helvetica, Arial, sans-serif;
+    font-size: 18px;
+    background: #ddd;
+}
+
+img {
+    max-width: 100%;
+    /* general responsive img style */
+}
+
+hr {
+    border-top: 1px solid #7e8aa2;
+    /* override default color */
+}
+
+
+/* Flex Grid*/
+
+.flex {
+    display: flex;
+}
+
+.grid {
+    display: block;
+}
+
+.col {
+    flex: 1;
+}
+
+.gutters {
+    padding: 0.5em;
+}
+
+.flex-v-center {
+    align-items: center;
+}
+
+
+/* Alignment & Spacing */
+
+.center-text {
+    text-align: center;
+}
+
+.center {
+    margin: auto;
+}
+
+.no-margin {
+    margin: 0;
+}
+
+.margin-1 {
+    margin: 1em;
+}
+
+
+/* Buttons/Links */
+
+.link {
+    text-decoration: none;
+    color: #184394;
+}
+
+.link:hover {
+    text-decoration: underline;
+    opacity: 0.8;
+}
+
+.btn {
+    display: inline-block;
+    margin: 1em auto;
+    padding: 0.2em 1em;
+    min-width: 7em;
+    border: 0;
+    background: #c3944e;
+    text-align: center;
+    text-decoration: none;
+    transition: 0.3s all;
+    font-weight: 400;
+}
+
+.btn:hover {
+    background: #FF9800;
+}
+
+.btn:active {
+    box-shadow: inset 3px 3px 5px rgba(0, 0, 0, 0.6);
+}
+
+
+/* Lists */
+
+.list-no-style {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+
+/*=======================
+2. Typography & Headings
+========================*/
+
+
+/* Headings */
+
+h1 {
+    font-size: 2.7em;
+}
+
+
+/* Text Styling */
+
+.unbold {
+    font-weight: 300;
+}
+
+.small-text {
+    font-size: 0.8em;
+}
+
+.all-caps {
+    text-transform: uppercase;
+}
+
+.big-text {
+    font-size: 1.3em;
+}
+
+
+/* Text Colors */
+
+.white {
+    color: #fff;
+}
+
+.dark-gray {
+    color: #333;
+}
+
+.sm-black {
+    color: #000;
+}
+
+
+/* Effects */
+
+.ghost-shadow {
+    letter-spacing: .05em;
+    text-shadow: 2px 2px 0 #ddd, 4px 4px 0 rgba(0, 0, 0, 0.1);
+    /* first shadow must be same as bg color */
+}
+
+
+/*=======================
+3. Header
+========================*/
+
+header {
+    /*declared height needed since fixed header is out of doc flow, header height pushes elements down */
+    height: 5em;
+    /* height should be same as (height+paddings) for the fixed wrapper */
+}
+
+.fixed-wrapper {
+    position: fixed;
+    /* sticky top bar */
+    height: inherit;
+    /* maintain height of header */
+    width: 100%;
+    z-index: 999;
+    /* Keep it visible on top of content */
+    background: #263248;
+}
+
+.logo {
+    display: block;
+    margin: auto;
+    max-height: 2em;
+    /* Keep it in the header */
+    transition: 0.3s all;
+}
+
+.logo:hover {
+    opacity: 0.7;
+}
+
+
+/*=======================
+4. Nav
+========================*/
+
+nav {
+    padding: 1em 0;
+    width: 100%;
+    background: #7e8aa2;
+}
+
+nav a {
+    padding: 1em 0 1em 1em;
+    margin: 0 0 0 0.5em;
+}
+
+
+/*=======================
+5. Content/Media
+========================*/
+
+section {
+    max-width: 50em;
+    margin: 1em auto;
+    padding: 1em;
+}
+
+
+/* Hero Text/Image*/
+
+.hero {
+    padding: 0;
+    margin: 0;
+    max-width: 100%;
+    /* stretch to fit screen */
+    min-height: 12em;
+}
+
+.main-text {
+    padding: 1.5em;
+    background: #fff;
+}
+
+.hero-background-img {
+    min-height: inherit;
+    /* so the bg stays same height as the hero section */
+    background: #7E8AA2;
+    /* fallback */
+    background: url("file:///D:/Documents/Work/Code/Udacity/Portfolio/img/hero2.jpg") 50% 40%/cover;
+    /* slightly lowered bg to better keep face visible */
+}
+
+
+/* Featured Content */
+
+.featured {
+    max-width: 60em;
+    /* since it's not one long sentence but divided content it can be wider*/
+    margin: -3em auto 0 auto;
+    /* slightly overlay top of featured over the hero */
+    padding: 0;
+}
+
+article {
+    width: 100%;
+    background: #fff;
+    border-top: 0.5em solid #263248;
+    transition: 0.3s all;
+}
+
+article:hover {
+    border-color: #FF9800;
+}
+
+.feature-img {
+    border: 1px solid #555;
+    border-width: 1px 0;
+    transition: 0.5s all;
+}
+
+.feature-img:hover {
+    opacity: 0.9;
+}
+
+
+/* Contact */
+
+.contact li {
+    display: inline-block;
+    margin: 0 1.8em 0.5em 0;
+}
+
+
+/* About */
+
+.headshot {
+    margin: 0 1em 1em 0;
+    border-radius: 99%;
+}
+
+
+/*=======================
+6. Footer
+========================*/
+
+footer {
+    padding: 1em 0;
+    width: 100%;
+    border-top: 0.3em solid #7e8aa2;
+    background: #263248;
+}
+
+footer a {
+    display: inline-block;
+    /* so the footer expands with their height/padding */
+    padding: 1em;
+}
+
+
+/*=======================
+7. Other
+========================*/
+
+
+/* Animations */
+
+.fade-in {
+    animation: fadein 0.5s;
+}
+
+@keyframes fadein {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+
+/* Fontello Icon Font Plugin */
+
+@font-face {
+    font-family: "fontello";
+    src: url("../font/fontello.eot");
+    src: url("../font/fontello.eot?#iefix") format("embedded-opentype"), url("../font/fontello.woff2") format("woff2"), url("../font/fontello.woff") format("woff"), url("../font/fontello.ttf") format("truetype"), url("../font/fontello.svg#fontello") format("svg");
+    font-weight: normal;
+    font-style: normal;
+}
+
+[class^="icon-"]:before, [class*=" icon-"]:before {
+    font-family: "fontello";
+    font-style: normal;
+    font-weight: normal;
+    speak: none;
+    display: inline-block;
+    text-decoration: inherit;
+    width: 1em;
+    margin: 0 0.5em 0 0;
+    font-size: 1.2em;
+    text-align: center;
+    /* For safety - reset parent styles, that can break glyph codes*/
+    font-variant: normal;
+    text-transform: none;
+    /* fix buttons height, for twitter bootstrap */
+    line-height: 1em;
+    /* Font smoothing. That was taken from TWBS */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-github:before {
+    content: '\e800';
+}
+
+
+/* '' */
+
+.icon-linkedin:before {
+    content: '\e801';
+}
+
+
+/* '' */
+
+.icon-gmail:before {
+    content: '\e802';
+}
+
+
+/* '' */
+
+.icon-upwork:before {
+    content: '\e803';
+}
+
+
+/* '' */
+
+
+/*=======================
+8. Media Queries
+========================*/
+
+
+/* Microscopic screens, probably unnecessary but just in case */
+
+@media only screen and (max-width:300px) {
+    body {
+        font-size: 16px;
+    }
+    header {
+        height: 7em;
+        /* increase space so the header bar doesnt cover the hero on tiny screens */
+    }
+}
+
+
+/* For tablets */
+
+@media only screen and (min-width: 480px) {
+    /* Flex Grid */
+    .grid {
+        display: flex;
+        flex-wrap: wrap;
+        /* so it can break to the next line */
+    }
+    .md-whole {
+        min-width: 100%;
+    }
+    .md-halves {
+        min-width: 50%;
+    }
+    .md-natural {
+        min-width: 0;
+    }
+    /* Animate the breakpoint transitions */
+    .grid, .md-whole, .md-halves, .lg-thirds {
+        transition: 0.3s all;
+    }
+    /* About */
+    .headshot {
+        float: left;
+    }
+}
+
+
+/* For Desktop */
+
+@media only screen and (min-width: 1000px) {
+    /* Flex Grid */
+    .lg-thirds {
+        min-width: 33.33%;
+    }
+    /* Layout & General */
+    .lg-80em-max {
+      max-width: 80em;
+    }
+
+    /*Typography*/
+    .lg-white {
+        color: #fff;
+    }
+    .lg-stripe-shadow:after {
+        content: attr(data-text);
+        /* get shadow lettering content from data-text attribute on the html element */
+        position: absolute;
+        left: 31px;
+        /* left and top exactly adjusts offset the shadow */
+        top: 36px;
+        z-index: -1;
+        /* stay under the letters */
+        background-image: -webkit-linear-gradient(top left, transparent 0%, transparent 25%, #000 25%, #000 50%, transparent 50%, transparent 75%, #000 75%);
+        /* create striped shadow only for webkit browsers */
+        background-size: 4px 4px;
+        /* controls stripe width */
+        -webkit-background-clip: text;
+        /* only for webkit unfortunately, clips shadow to text shape */
+        -webkit-text-fill-color: transparent;
+        color: #222;
+        /* fallback in case of no gradient/bg clip support*/
+        text-shadow: none;
+        /* shadow fills in the stripes if not cancelled */
+    }
+    .lg-outline {
+        text-shadow: -1px -1px 0 #222, 1px -1px 0 #222, -1px 1px 0 #222, 1px 1px 0 #222;
+        /* 1px shadows on all 4 sides to outline the letters */
+    }
+    /* Header/Nav */
+    .fixed-wrapper {
+        display: flex;
+        /* prep to make logo and nav stick to left & right sides */
+        justify-content: space-between;
+        /* expand empty space between logo and nav */
+    }
+    .logo-link {
+        margin: 0 0 0 5%;
+        /* keep the logo from getting too close to the edges */
+    }
+    .logo {
+        width: 10em;
+        max-height: 3em;
+        /* bigger screens mean bigger logos :p */
+    }
+    nav {
+        margin: 0 5% 0 0;
+        width: auto;
+        /* collapse it so you can stick it to one side */
+        background: transparent;
+        /* let the header background show through */
+    }
+    /* Hero */
+    .hero {
+        position: relative;
+        /* Keep the background img positioned inside the hero */
+        min-height: 20em;
+    }
+    .main-text {
+        position: relative;
+        left: 8%;
+        min-width: 20%;
+        /* To keep it a small text box */
+        max-width: 40%;
+        /* so it doesn't go to the viewport edge*/
+        background: #333;
+        /* fallback */
+        background: rgba(0, 0, 0, 0.5);
+        color: #fff;
+        text-align: left;
+        /* uncenter for large screens */
+        transform: skew(0, -2deg);
+        /* give it a nice rising text skew effect */
+    }
+    .main-text h1 {
+        border-top: 0.1em solid #fff;
+    }
+    .hero-background-img {
+        position: absolute;
+        /* So the main text can be overlaid on it */
+        top: 0;
+        left: 0;
+        z-index: -999;
+        /* keep it in the background */
+    }
+    /* Featured */
+    .featured {
+        margin: -2em auto 1em auto;
+    }
+    .featured .lg-thirds:nth-child(2) {
+        margin: -1em 0 0 0;
+        /* offset the middle featured item for visual interest */
+    }
+}
+
+
+/* For Large Desktop Screens */
+
+@media only screen and (min-width: 1200px) {
+    h1 {
+        font-size: 3.2em;
+    }
+    h2 {
+        font-size: 1.8em;
+    }
+}

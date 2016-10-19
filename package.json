@@ -12,6 +12,7 @@
     "grunt-newer": "^1.2.0",
     "grunt-postcss": "^0.8.0",
     "grunt-responsive-images": "^0.1.9",
+    "grunt-responsive-images-extender": "^2.0.1",
     "imagemin-mozjpeg": "^5.1.0"
   }
 }

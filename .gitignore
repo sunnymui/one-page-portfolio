@@ -80,6 +80,8 @@ bower_components
 .bower-registry
 .bower-tmp
 
+### Node ###
+node_modules
 
 ### grunt ###
 
