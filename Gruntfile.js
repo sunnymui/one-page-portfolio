@@ -42,6 +42,18 @@ module.exports = function(grunt) {
                 src: ['**/*.{png,jpg,gif}'], // Actual patterns to match, case SENSITIVE
                 dest: 'img/' // Destination path prefix
             }]
+        },
+        // for optimizing just favicons
+        icons: {
+          options: {
+              optimizationLevel: 7, // max optimize pngs
+          },
+          files: [{
+              expand: true, // Enable dynamic expansion
+              cwd: 'img/Favicons/images/', // Src matches are relative to this path
+              src: ['**/*.png'], // Actual patterns to match, case SENSITIVE
+              dest: 'img/Favicons/images/' // Destination path prefix
+          }]
         }
     },
 
