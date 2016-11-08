@@ -314,7 +314,10 @@ article {
 }
 
 article:hover {
+    transition: all 0.3s;
     border-color: #FF9800;
+    border-image: linear-gradient(95deg, #263248 0%, #FF9800 100%);
+    border-image-slice: 1;
 }
 
 article:hover
