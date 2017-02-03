@@ -6,6 +6,8 @@ Completely responsive.
 
 Flexbox based layout.
 
-Live version:
+Live version via custom domain:
+[www.sunnymui.com](http://www.sunnymui.com)
 
+Original GitHub Pages link:
 [https://sunnymui.github.io/one-page-portfolio/](https://sunnymui.github.io/one-page-portfolio/)
