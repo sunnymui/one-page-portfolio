@@ -96,6 +96,22 @@ hr {
     margin: 0;
 }
 
+.no-v-margin-center {
+    margin: 0 auto;
+}
+
+.no-padding {
+    padding: 0;
+}
+
+.padding-1 {
+    padding: 1em;
+}
+
+.margin-05 {
+    margin: 0.5em;
+}
+
 .margin-1 {
     margin: 1em;
 }
@@ -178,6 +194,25 @@ h1 {
 
 .big-text {
     font-size: 1.3em;
+}
+
+.big-text-2 {
+    font-size: 2em;
+}
+
+
+/* Text Layout */
+
+.center-text {
+    text-align: center;
+}
+
+.left-text {
+    text-align: left;
+}
+
+.right-text {
+    text-align: right;
 }
 
 
@@ -291,8 +326,23 @@ section {
     /* slightly lowered bg to better keep face visible */
     background: -webkit-image-set(url('../img/hero-1x.jpg') 1x, url('../img/hero.jpg') 2x) 50% 40%/cover;
     /* switch bgs based on resolution, only for webkit at this point */
+    animation: PanInBG 18s ease 1;
+    /* animate it like panning down from above */
 }
 
+/* Creates a sort of moving background effect */
+
+@keyframes PanInBG {
+    0% {
+        background-position: 100% 0%;
+    }
+    50% {
+        background-position: 0% 50%;
+    }
+    100% {
+        background-position: 50% 40%;
+    }
+}
 
 /* Featured Content */
 
@@ -315,8 +365,8 @@ article {
 
 article:hover {
     transition: all 0.3s;
-    border-color: #FF9800;
-    border-image: linear-gradient(95deg, #263248 0%, #FF9800 100%);
+    border-color: #FFF;
+    border-image: none;
     border-image-slice: 1;
 }
 
@@ -353,13 +403,78 @@ article:hover
 }
 
 
+/* Testimonials */
+
+blockquote {
+    background: #f9f9f9;
+    font-weight: 300;
+    border-width: 0 0 0 1px;
+    padding: 1em;
+}
+
+
+/* Make the quotation mark accent */
+
+blockquote:before {
+    color: #ccc;
+    content: "“";
+    font-size: 4em;
+    line-height: 0.1em;
+    margin-right: 0.25em;
+    vertical-align: -0.4em;
+}
+
+/* Style the testimonial source */
+
+blockquote p {
+    padding: 0.5em;
+    /* center the source text for small screens */
+    text-align: center;
+    color: #888;
+    font-size: 0.8em;
+    font-style: italic;
+    border-top: 1px solid #eee;
+    margin: 1em 0 0 0;
+}
+
+blockquote img {
+    /* Smaller screens the the source pic will be above the text */
+    display: block;
+    margin: 0.5em auto;
+    border-radius: 99%;
+    max-width: 3em;
+}
+
+
+/* Process */
+
+.card {
+    margin: 0.5em;
+    border: 1px solid #ccc;
+    border-left: 3px solid #707f94;
+    font-weight: 100;
+    background: #fff;
+}
+
+.card:nth-child(2n) {
+    border-left: 3px solid #ac6d6d;
+}
+
+.card:nth-child(3n) {
+    border-left: 3px solid #73a16a;
+}
+
+.card:nth-child(4n) {
+    border-left: 3px solid #b9965a;
+}
+
+
 /* About */
 
 .headshot {
     margin: 0 1em 1em 0;
     border-radius: 99%;
 }
-
 
 /*=======================
 6. Footer
@@ -400,6 +515,21 @@ footer a {
     }
 }
 
+.delay-025 {
+  animation-delay: 0.25s;
+}
+
+.delay-05 {
+  animation-delay: 0.5s;
+}
+
+.delay-075 {
+  animation-delay: 0.75s;
+}
+
+.delay-1 {
+  animation-delay: 1s;
+}
 
 /* Fontello Icon Font Plugin */
 
@@ -448,6 +578,45 @@ footer a {
     content: '\e803';/* '' */
 }
 
+/* Animate.css Plugin */
+
+.animated {
+    -webkit-animation-duration: 1s;
+    animation-duration: 1s;
+    -webkit-animation-fill-mode: both;
+    animation-fill-mode: both;
+}
+
+.fadeInDown {
+    -webkit-animation-name: fadeInDown;
+    animation-name: fadeInDown;
+}
+
+@-webkit-keyframes fadeInDown {
+    from {
+        opacity: 0;
+        -webkit-transform: translate3d(0, -10%, 0);
+        transform: translate3d(0, -10%, 0);
+    }
+    to {
+        opacity: 1;
+        -webkit-transform: none;
+        transform: none;
+    }
+}
+
+@keyframes fadeInDown {
+    from {
+        opacity: 0;
+        -webkit-transform: translate3d(0, -10%, 0);
+        transform: translate3d(0, -10%, 0);
+    }
+    to {
+        opacity: 1;
+        -webkit-transform: none;
+        transform: none;
+    }
+}
 
 /*=======================
 8. Media Queries
@@ -521,6 +690,13 @@ footer a {
 
     .lg-thirds {
         min-width: 33.33%;
+    }
+
+    /* Layout */
+
+    .lg-inline-middle {
+        display: inline-block;
+        vertical-align: middle;
     }
 
     /*Typography*/
