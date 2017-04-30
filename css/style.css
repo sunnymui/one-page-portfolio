@@ -326,7 +326,7 @@ section {
     /* slightly lowered bg to better keep face visible */
     background: -webkit-image-set(url('../img/hero-1x.jpg') 1x, url('../img/hero.jpg') 2x) 50% 40%/cover;
     /* switch bgs based on resolution, only for webkit at this point */
-    animation: PanInBG 18s ease 1;
+    animation: PanInBG 15s ease 1;
     /* animate it like panning down from above */
 }
 
@@ -334,12 +334,15 @@ section {
 
 @keyframes PanInBG {
     0% {
+        background-size: 110%;
         background-position: 100% 0%;
     }
     50% {
+        background-size: 100%;
         background-position: 0% 50%;
     }
     100% {
+        background-size: cover;
         background-position: 50% 40%;
     }
 }
