@@ -258,7 +258,7 @@ header {
     width: 100%;
     /* maintain height of header */
     background: #263248;
-    background-image: linear-gradient(160deg, #263248 0%, #828ea6 100%);
+    background: linear-gradient(160deg, #263248 0%, #828ea6 100%);
 }
 
 .logo {
@@ -736,6 +736,18 @@ footer a {
     }
 
     /* Header/Nav */
+
+    header {
+        /* collapse the hero image to top so nav header overlays hero img */
+        height: auto;
+    }
+
+    .fixed-wrapper {
+        /* transparent overlay the nav header on the hero image */
+        background: linear-gradient(180deg, rgb(38, 50, 72) 0%, rgba(38, 50, 72, 0.54) 70%, rgba(38, 50, 72, 0.36) 85%, rgba(130, 142, 166, 0) 100%);
+        /* pad the bottom a little since fade to clear makes it appear uneven */
+        padding-bottom: 0.3em;
+    }
 
     .logo-link {
         display: block;
