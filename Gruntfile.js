@@ -146,7 +146,10 @@ module.exports = function(grunt) {
     'postcss',
   ]);
 
-  // Build task for production eg minified and prefixed everything
-  // grunt.registerTask('build', ['imagemin']);
+  // images task for just responsive image creation and optimization
+  grunt.registerTask('images', [
+    'responsive_images',
+    'imagemin'
+  ]);
 
 };
