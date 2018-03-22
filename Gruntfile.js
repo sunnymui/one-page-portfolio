@@ -34,7 +34,7 @@ module.exports = function(grunt) {
                 optimizationLevel: 7, // max optimize pngs
                 progressive: true, // progressive jpgs
                 interlaced: true, // progressive gifs
-                use: [mozjpeg({quality:80})] // use the mozjpeg optimizer plugin for imagemin because it's better for web
+                use: [mozjpeg({quality:70})] // use the mozjpeg optimizer plugin for imagemin because it's better for web
             },
             files: [{
                 expand: true, // Enable dynamic expansion
@@ -60,9 +60,21 @@ module.exports = function(grunt) {
     // responsive images plugin - generate multiple sizes of images
     responsive_images: {
       dev: {
-        //options {
-
-        //},
+        options: {
+        sizes: [{
+          name: 'small',
+          width: 300,
+          suffix: "-small"
+        },{
+          name: 'medium',
+          width: 450,
+          suffix: "-medium"
+        },{
+          name: 'large',
+          width: 640,
+          suffix: "-large"
+        }]
+      },
         files: [{
             expand: true,
             src: ['**/*.{jpg,gif,png}'], // double asterisk matches subdirectories in addition to current
@@ -87,7 +99,7 @@ module.exports = function(grunt) {
       }
     },
 
-    // postcss - podyprocess your css using the autoprefixer plugin
+    // postcss - postprocess your css using the autoprefixer plugin
     postcss: {
       options: {
         map: true,
