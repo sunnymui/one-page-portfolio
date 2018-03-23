@@ -77,7 +77,7 @@ module.exports = function(grunt) {
       },
         files: [{
             expand: true,
-            src: ['**/*.{jpg,gif,png}'], // double asterisk matches subdirectories in addition to current
+            src: ['*.{jpg,gif,png}'], // double asterisk matches subdirectories in addition to current
             cwd: 'src/img-src',
             dest: 'img/'
         }]
