@@ -757,7 +757,6 @@ footer a {
     }
 
     .logo {
-        width: 10em;
         max-height: 3em;
         /* bigger screens mean bigger logos :p */
     }
