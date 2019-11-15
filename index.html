@@ -29,9 +29,9 @@
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400" rel="stylesheet">
 
     <!-- Preload/fetch/connect Stuff -->
-    <link rel="preload" href="https://code.jquery.com/jquery-1.12.4.min.js" as="script" crossorigin>
-    <link rel="preload" href="js/plugins.js" as="script" crossorigin>
-    <link rel="preload" href="js/main.js" as="script" crossorigin>
+    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.12.4/jquery.js" integrity="sha256-Qw82+bXyGq6MydymqBxNPYTaUXXq7c8v3CwiYwLLNXU=" crossorigin="anonymous" as="script">
+    <link rel="preload" href="js/plugins.js" as="script">
+    <link rel="preload" href="js/main.js" as="script">
     <link href="https://sunnymui.github.io/frontend-nanodegree-resume/" rel="prefetch" crossorigin>
     <link href="https://sunnymui.github.io" rel="preconnect" crossorigin>
     <link href="https://www.destroythecomics.com" rel="preconnect" crossorigin>
@@ -534,12 +534,11 @@
         <p class="no-margin white small-text">© 2016 Sunny Mui</p>
     </footer>
 
-    <script
-  src="https://code.jquery.com/jquery-1.12.4.min.js"
-  integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ="
-  crossorigin="anonymous" async></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.12.4/jquery.js" integrity="sha256-Qw82+bXyGq6MydymqBxNPYTaUXXq7c8v3CwiYwLLNXU=" crossorigin="anonymous" async></script>
     <script>
+    window.onload = () => {
         window.jQuery || document.write('<script src="js/vendor/jquery-1.12.0.min.js"><\/script>')
+    }
     </script>
     <script src="js/plugins.js" async></script>
     <script src="js/main.js" async></script>
