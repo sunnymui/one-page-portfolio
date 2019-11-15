@@ -2,6 +2,7 @@
 // FUNCTIONS //
 ///////////////
 
+window.onload = (function($) {
 // Utility Functions
 
 String.prototype.replaceAll = function(search, replace) {
@@ -301,35 +302,31 @@ function features(target) {
 
 // Plugin Functions
 
-(function($) {
+  /**
+   * Copyright 2012, Digital Fusion
+   * Licensed under the MIT license.
+   * http://teamdf.com/jquery-plugins/license/
+   *
+   * @author Sam Sehnert
+   * @desc A small plugin that checks whether elements are within
+   *     the user visible viewport of a web browser.
+   *     only accounts for vertical position, not horizontal.
+   */
 
-    /**
-     * Copyright 2012, Digital Fusion
-     * Licensed under the MIT license.
-     * http://teamdf.com/jquery-plugins/license/
-     *
-     * @author Sam Sehnert
-     * @desc A small plugin that checks whether elements are within
-     *     the user visible viewport of a web browser.
-     *     only accounts for vertical position, not horizontal.
-     */
+  $.fn.visible = function(partial) {
 
-    $.fn.visible = function(partial) {
+      var $t = $(this),
+          $w = $(window),
+          viewTop = $w.scrollTop(),
+          viewBottom = viewTop + $w.height(),
+          _top = $t.offset().top,
+          _bottom = _top + $t.height(),
+          compareTop = partial === true ? _bottom : _top,
+          compareBottom = partial === true ? _top : _bottom;
 
-        var $t = $(this),
-            $w = $(window),
-            viewTop = $w.scrollTop(),
-            viewBottom = viewTop + $w.height(),
-            _top = $t.offset().top,
-            _bottom = _top + $t.height(),
-            compareTop = partial === true ? _bottom : _top,
-            compareBottom = partial === true ? _top : _bottom;
+      return ((compareBottom <= viewBottom) && (compareTop >= viewTop));
 
-        return ((compareBottom <= viewBottom) && (compareTop >= viewTop));
-
-    };
-
-})(jQuery);
+  };
 
 function scrollspy(nav_link) {
     /*
@@ -406,50 +403,52 @@ function scrollspy(nav_link) {
 
 }
 
-var $window = $(window);
+  var $window = $(window);
 
-// CSS Classes
-var truncate_class = 'truncate lighter-gray';
-var fixed_class = 'fixed-wrapper no-margin';
-// class to add when element is visible
-var fade_animate_class = 'fadeInDown';
-var active_nav_class = 'active';
+  // CSS Classes
+  var truncate_class = 'truncate lighter-gray';
+  var fixed_class = 'fixed-wrapper no-margin';
+  // class to add when element is visible
+  var fade_animate_class = 'fadeInDown';
+  var active_nav_class = 'active';
 
-// DOM Selectors
-var $nav = $('nav');
-var $nav_link = $('nav a');
-var description = '.description';
-var $read_more_btn = $('.read-more');
-// filter anchors in document linking to the top anchor
-var $top_btn = $('a[href="#top"]');
-// get element(s) with this class for animating
-var $animated_element = $('.animated');
-var $page = $('html, body');
+  // DOM Selectors
+  var $nav = $('nav');
+  var $nav_link = $('nav a');
+  var description = '.description';
+  var $read_more_btn = $('.read-more');
+  // filter anchors in document linking to the top anchor
+  var $top_btn = $('a[href="#top"]');
+  // get element(s) with this class for animating
+  var $animated_element = $('.animated');
+  var $page = $('html, body');
 
-// calculate height of the nav element
-var nav_height = $nav.outerHeight() + 15;
-// smooth animated nav link on page jumps
-features($nav_link).animate_nav_jump(nav_height);
-// smooth animated to top button jumping to top of the page
-features($top_btn).to_top();
+  // calculate height of the nav element
+  var nav_height = $nav.outerHeight() + 15;
+  // smooth animated nav link on page jumps
+  features($nav_link).animate_nav_jump(nav_height);
+  // smooth animated to top button jumping to top of the page
+  features($top_btn).to_top();
 
-// Scroll Function Vars
+  // Scroll Function Vars
 
-// get the distance of the nav from the top of the window for sticky nav function
-var nav_distance_from_top = $nav.offset().top;
-// correct the nav distance to top of page if window is resized
-$window.resize(function() {
-    nav_distance_from_top = $nav.offset().top;
-});
-// mapped array of nav menu anchors for scrollspy plugin use
-// var nav_map = scrollspy($nav_link).nav_item_map();
+  // get the distance of the nav from the top of the window for sticky nav function
+  var nav_distance_from_top = $nav.offset().top;
+  // correct the nav distance to top of page if window is resized
+  $window.resize(function() {
+      nav_distance_from_top = $nav.offset().top;
+  });
+  // mapped array of nav menu anchors for scrollspy plugin use
+  // var nav_map = scrollspy($nav_link).nav_item_map();
 
-// Run scroll event dependent features
-$window.scroll(function() {
-    // sticky nav menu when scrolling past it's initial page location
-    // features($nav).sticky_nav(fixed_class, nav_distance_from_top);
-    // play css animation when an element is visible in the window
-    features($animated_element).animate_visible(fade_animate_class);
-    // Scrollspy Plugin to highlight nav menu items when you're in that section
-    // scrollspy($nav_link).highlight(active_nav_class, nav_map, nav_height);
-});
+  // Run scroll event dependent features
+  $window.scroll(function() {
+      // sticky nav menu when scrolling past it's initial page location
+      // features($nav).sticky_nav(fixed_class, nav_distance_from_top);
+      // play css animation when an element is visible in the window
+      features($animated_element).animate_visible(fade_animate_class);
+      // Scrollspy Plugin to highlight nav menu items when you're in that section
+      // scrollspy($nav_link).highlight(active_nav_class, nav_map, nav_height);
+  });
+
+})(jQuery);
